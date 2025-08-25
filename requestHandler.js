@@ -13,7 +13,7 @@ export async function createUser(req, res) {
   try {
     const VerifyEmail = await createUserSchema.findOne({ email: email });
     if (VerifyEmail) {
-      res.status(409).send("email already exitsed");
+      return res.status(409).send("email already exitsed");
     }
 
     const createUser = await createUserSchema.create({
